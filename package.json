@@ -1,11 +1,16 @@
 {
-  "name": "braingamesbyalexeypant",
+  "name": "brain-games-ap-second",
   
-   "version": "1.0.0",
+   "version": "0.0.2",
   
    "description": "",
   
    "main": "index.js",
+
+    "bin": {
+      "brain-games": "src/bin/brain-games.js"
+
+    },
 
     "files": [
       "dist"
@@ -13,26 +18,26 @@
  
    "scripts": {
 
-    "prepublishOnly": "npm run build",
+    "babel-node" : "babel-node",
 
     "build" : "NODE_ENV=production babel src --out-dir dist --source-maps inline",
 
-    "babel-node" : "babel-node",
-    
+    "prepublishOnly": "npm run build",
+        
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
-  "bin": {
-    "brain-games": "dist/bin/brain-games.js"
-
-  },
-  
-   "author": "",
+   "author": "Alexey Panteleychuk",
   
    "license": "ISC"
 ,
+
+  "dependencies": {
+    "readline-sync": "*"
+  },
+
    "devDependencies":{
-   "babel-cli": "*",
+    "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*"
