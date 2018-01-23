@@ -4,11 +4,23 @@ import readlineSync from 'readline-sync';
 
 // Wait for user's response
 
-const getResponseAndShow = () => {
+export const getResponseAndShow = () => {
 	const userName = readlineSync.question('May I have your name? ');
-	console.log(`Hello, ${userName} !'`);
+	console.log(`Hello, ${userName}!'`);
+	return userName;
 
-	;
 }
 
-export default getResponseAndShow;
+export const getGuess = () => {
+	const guess = readlineSync.question('Your answer: ');
+	return guess;
+
+}
+
+//export default getResponseAndShow;
+
+export const getRoundRandomNumber = () => {
+	
+	return Math.round(Math.random()*100);
+
+}
