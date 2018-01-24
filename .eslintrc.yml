@@ -1,10 +1,7 @@
 
 parser: babel-eslint
 
-extends: {
-  airbnb-base,
-  rallycoding
-}
+"extends": "airbnb-base"
 
 rules:
   no-console: 0
