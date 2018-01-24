@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {getResponseAndShow, getRoundRandomNumber, getGuess } from '..';
+import {getResponseAndShow, getRoundRandomNumber, getGuess } from '..'
 
 
 console.log('Welcome to the Brain Games');
@@ -9,19 +9,16 @@ console.log('What is the result of the expression?');
 
 const playerName = getResponseAndShow();  // getting the name, saying hello and show the name
 
-
 let randNumFirst;
 let randNumSecond;
 let resultOfOperation;
 let guess;
 let correctAnswers = 0;
 
-
-
 for(let i = 0; i < 3; i++){
 	randNumFirst = getRoundRandomNumber();
 	randNumSecond = getRoundRandomNumber();
-
+	
 	// Sum is the first operation
 	if (i === 0) {
 		resultOfOperation = randNumFirst + randNumSecond;
