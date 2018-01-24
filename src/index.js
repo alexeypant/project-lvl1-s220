@@ -21,6 +21,6 @@ export const getGuess = () => {
 
 export const getRoundRandomNumber = () => {
 	
-	return Math.round(Math.random()*100);
+	return Math.round(Math.random()*10);
 
 }

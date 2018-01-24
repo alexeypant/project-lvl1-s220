@@ -1,11 +1,12 @@
 {
-  "name": "brain-games-ap-second",
-  "version": "0.0.2",
+  "name": "brain-games-evenadded-ap",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "bin": {
     "brain-games": "src/bin/brain-games.js",
-    "brain-even": "src/bin/brain-even.js"
+    "brain-even": "src/bin/brain-even.js",
+    "brain-calc": "src/bin/brain-calc.js"
   },
   "files": [
     "dist"
