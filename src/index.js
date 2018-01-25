@@ -56,5 +56,5 @@ const checkAnswer = (guess, correctAnswer) => {
 
 export const getRoundRandomNumber = () => {
 	
-	return Math.round(Math.random()*10);
+	return Math.round(Math.random()*100);
 }
