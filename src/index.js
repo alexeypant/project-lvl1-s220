@@ -2,13 +2,13 @@
 import readlineSync from 'readline-sync';
 
 
-export const startGame = (game) => {
+export const runGame = (game,message) => {
 
-	console.log(`${game.title}`);
+	console.log(message);
 
 	console.log(`${game.task}`);
 
-	game.player = getResponseAndShow(); // getting the name, saying hello and show the name
+	const playerName = getResponseAndShow(); // getting the name, saying hello and show the name
 	
 	let correctAnswer = 0;
 	let guess;
@@ -23,7 +23,7 @@ export const startGame = (game) => {
 			break;
 		}
 		if(i === 2){
-			console.log(`Congratulations ${game.player}!`);
+			console.log(`Congratulations ${playerName}!`);
 			break;
 		}
 		i++;
