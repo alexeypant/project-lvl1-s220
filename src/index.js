@@ -2,59 +2,123 @@
 
 import readlineSync from 'readline-sync';
 
+export const startGameEven = () => {
 
-export const showWelcomeMessageEven = () => {
+	showWelcomeMessageEven();
+	
+	const playerName = getResponseAndShow();  // getting the name, saying hello and show the name
+	let correctAnswer = 0;
+	let guess;
+	let isCorrect;
+	let i = 0;
+
+	while(i < 3){
+		correctAnswer = generateNumberAndShow();  	// ask question, show it, return the correct answer
+		guess =  getGuess();  							// get the user's guess
+		isCorrect = checkAnswer(guess,correctAnswer);				// check the answer, show results, if wrong, quit, 
+		if(!isCorrect) {
+			break;
+		}
+		if(i === 2){
+			console.log(`Congratulations ${playerName}!`);
+			break;
+		}
+		i++;
+	}
+}
+
+
+export const startGameCalc = () => {
+	showWelcomeMessageCalc();
+	const playerName = getResponseAndShow();  // getting the name, saying hello and show the name
+
+
+	let correctAnswer;
+	let guess;
+	let isCorrect;
+	let i = 0;
+	while(i < 3){
+		correctAnswer = generateExpressionAndShow(i);  	// ask question, show it, return the correct answer
+		guess =  getGuess();  							// get the user's guess
+		isCorrect = checkAnswer(guess,correctAnswer);				// check the answer, show results, if wrong, quit, 
+		if(!isCorrect) {
+			break;
+		}
+		if(i === 2){
+			console.log(`Congratulations ${playerName}!`);
+			break;
+		}
+		i++;
+	}
+}
+
+const showWelcomeMessageEven = () => {
 	console.log('Welcome to the Brain Games');
 	console.log('Answer "yes" if number even otherwise answer "no".');
 }
 
 
-// Wait for user's response
-export const getResponseAndShow = () => {
+// Ask user name, get response  and say hello to him
+const getResponseAndShow = () => {
 	const userName = readlineSync.question('May I have your name? ');
 
 	console.log(`'Hello, ${userName}!'`);
 	return userName;
 }
 
-export const getGuess = () => {
+const getGuess = () => {
 	const guess = readlineSync.question('Your answer: ');
 	return guess;
 }
 
-//export default getResponseAndShow;
+const generateNumberAndShow = () => {
 
-export const getRoundRandomNumber = () => {
+	const randNum = getRoundRandomNumber();
+	const correctAnswer = (randNum%2 === 0) ? 'yes' : 'no';
+	console.log(`'Question: ${randNum}'`);
+	return String(correctAnswer);
+}
+
+const generateExpressionAndShow = (oper) => {
+
+	const randNumFirst = getRoundRandomNumber();
+	const randNumSecond = getRoundRandomNumber(); 
+	let correctAnswer;
+
+	switch(oper){
+		case 0: console.log(`'Question: ${randNumFirst} + ${randNumSecond}'`);
+				correctAnswer = randNumFirst + randNumSecond;
+				break;
+
+		case 1: console.log(`'Question: ${randNumFirst} * ${randNumSecond}'`);
+				correctAnswer = randNumFirst * randNumSecond;
+				break;
+
+		case 2: console.log(`'Question: ${randNumFirst} - ${randNumSecond}'`);
+				correctAnswer = randNumFirst - randNumSecond;
+				break;		
+	}
+	return String(correctAnswer);
+}
+
+const showWelcomeMessageCalc = () => {
+	console.log('Welcome to the Brain Games');
+	console.log('What is the result of the expression?');
+//	return;
+}
+
+const checkAnswer = (guess, correctAnswer) => {
+	if(correctAnswer !== guess){
+		console.log(`${guess} was wrong answer ;(. Correct answer was  ${correctAnswer}`);
+		return false;
+	}
+	else {
+		console.log('Correct!');
+		return true;
+	}
+}
+
+const getRoundRandomNumber = () => {
 	
 	return Math.round(Math.random()*10);
-
-}
-
-export const startGameEven = () => {
-
-showWelcomeMessageEven();
-
-const playerName = getResponseAndShow();  // getting the name, saying hello and show the name
-
-
-let randomNumber;
-let guess;
-let correctAnswers = 0;
-
-for(let i = 0; i < 3; i++){
-
-	randomNumber = getRoundRandomNumber();
-	console.log(`Question: ${randomNumber}'`);
-	guess = getGuess();
-	if( (randomNumber%2 === 0 && guess === 'yes') || (randomNumber%2 !== 0 && guess === 'no') ) {
-		correctAnswers++;
-		console.log('Correct!');
-		continue;
-	}
-	console.log(`${guess} was wrong answer ;(. Correct answer was  ${(guess === 'yes') ? 'no' : 'yes'}'`);
-	break;
-}
-if (correctAnswers === 3) {
-	console.log(`Congratulations ${playerName}!'`);
-}
 }
