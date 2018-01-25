@@ -1,6 +1,6 @@
 {
-  "name": "brain-games-calcadded-ap",
-  "version": "0.2.1",
+  "name": "brain-games-ap",
+  "version": "0.2.3",
   "description": "",
   "main": "index.js",
   "bin": {
