@@ -1,7 +1,10 @@
 ---
 
-language: node_js
+language: 
+  - node_js
+
 node_js:
   - stable
 
-script: make lint test
+script: 
+  - make lint

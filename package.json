@@ -1,8 +1,8 @@
 {
   "name": "brain-games-ap",
-  "version": "0.3.0",
-  "description": "",
-  "main": "dist/index.js",
+  "version": "0.4.0",
+  "description": "brain games by alexey panteleychuk",
+  "main": "src/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
@@ -28,15 +28,13 @@
     "readline-sync": "*"
   },
   "devDependencies": {
-    "babel-cli": "*",
-    "babel-core": "*",
-    "babel-eslint": "*",
-    "babel-preset-env": "*",
-    "babel-preset-stage-0": "*",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.16.0",
-    "eslint-config-airbnb-base": "*",
-    "eslint-config-rallycoding": "^3.2.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.7.0"
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   }
 }

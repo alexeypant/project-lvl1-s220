@@ -1,32 +1,29 @@
-import {getRoundRandomNumber, runGame} from '..';
+import { getRoundRandomNumber, runGame } from '..';
 
+const startGame = () => {
+  const game = {
+    task: 'Find the greatest common divisor of given numbers.',
+    function: () => {
+      let a = getRoundRandomNumber();
+      let b = getRoundRandomNumber();
+      while (a === 0 || b === 0) {
+        a = getRoundRandomNumber();
+        b = getRoundRandomNumber();
+      }
+      console.log(`'Question: ${a} and ${b}'`);
+      while (a !== 0 && b !== 0) {
+        if (a >= b) {
+          a %= b;
+        } else {
+          b %= a;
+        }
+      }
+      return String(a + b);
+    },
+  };
 
-export const startGame = () => {
+  const message = 'Welcome to the Brain Games: GCD';
 
-	const game = {
-		task: 'Find the greatest common divisor of given numbers.',
-		function: () => {
-			let a = getRoundRandomNumber();
-			let b = getRoundRandomNumber(); 
-			while(a === 0 || b ===0){
-				a = getRoundRandomNumber();
-				b = getRoundRandomNumber();
-			}
-			console.log(`'Question: ${a} and ${b}'`);
-			while(a !== 0 && b !==0){
-				if(a >= b){
-					a = a % b;
-				}
-				else {
-					b = b % a;
-				}
-			}
-			return String(a+b);
-		}
-	}
-
-	const message = 'Welcome to the Brain Games: GCD';
-
-	runGame(game, message);
-
-}
+  runGame(game, message);
+};
+export default startGame;
