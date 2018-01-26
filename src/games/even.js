@@ -1,13 +1,14 @@
-import { getRoundRandomNumber, runGame } from '..';
+import { runGame } from '..';
+import { cons, car, cdr, toString } from 'hexlet-pairs';
 
 const startGame = () => {
   const game = {
     task: 'Answer "yes" if number even otherwise answer "no".',
     function: () => {
-      const randNum = getRoundRandomNumber();
+      const randNum = Math.round(Math.random() * 100);
+      const question = `${randNum}`;
       const answer = (randNum % 2 === 0) ? 'yes' : 'no';
-      console.log(`'Question: ${randNum}'`);
-      return String(answer);
+      return cons(question, answer);
     },
   };
   const message = 'Welcome to the Brain Games: Even';

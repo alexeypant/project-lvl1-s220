@@ -1,25 +1,29 @@
-import { getRoundRandomNumber, runGame } from '..';
+import { runGame } from '..';
+import { cons, car, cdr, toString } from 'hexlet-pairs';
 
 const startGame = () => {
   const game = {
     task: 'What is the result of the expression?',
     function: () => {
-      const randNumFirst = getRoundRandomNumber();
-      const randNumSecond = getRoundRandomNumber();
+      const randNumFirst = Math.round(Math.random() * 10);
+      const randNumSecond = Math.round(Math.random() * 10);
+      let question;
       let correctAnswer;
       const oper = Math.round(Math.random() * 2);
       switch (oper) {
-        case 0: console.log(`'Question: ${randNumFirst} + ${randNumSecond}'`);
+        case 0: question = (`${randNumFirst} + ${randNumSecond}`);
           correctAnswer = randNumFirst + randNumSecond;
-          break;
-        case 1: console.log(`'Question: ${randNumFirst} * ${randNumSecond}'`);
+          return cons(question, correctAnswer);
+        case 1: question = (`${randNumFirst} * ${randNumSecond}`);
           correctAnswer = randNumFirst * randNumSecond;
-          break;
-        default: console.log(`'Question: ${randNumFirst} - ${randNumSecond}'`);
+          return cons(question, correctAnswer);
+        case 2: question = (`${randNumFirst} - ${randNumSecond}`);
           correctAnswer = randNumFirst - randNumSecond;
+          return cons(question, correctAnswer);
+        default:
           break;
       }
-      return String(correctAnswer);
+      return null;
     },
   };
   const message = 'Welcome to the Brain Games: Calc';
