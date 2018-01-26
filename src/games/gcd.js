@@ -1,5 +1,6 @@
+import { cons } from 'hexlet-pairs';
 import { runGame } from '..';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+
 
 const startGame = () => {
   const game = {
@@ -7,13 +8,11 @@ const startGame = () => {
     function: () => {
       let a = 0;
       let b = 0;
-      let question;
-      let correctAnswer;
       while (a === 0 || b === 0) {
         a = Math.round(Math.random() * 100);
         b = Math.round(Math.random() * 100);
       }
-      question = (`${a} and ${b}`);
+      const question = (`${a} and ${b}`);
       while (a !== 0 && b !== 0) {
         if (a >= b) {
           a %= b;
@@ -21,8 +20,8 @@ const startGame = () => {
           b %= a;
         }
       }
-      correctAnswer = (a + b);
-      return cons(question,correctAnswer);
+      const correctAnswer = (a + b);
+      return cons(question, correctAnswer);
     },
   };
 

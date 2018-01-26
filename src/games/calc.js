@@ -1,5 +1,6 @@
+import { cons } from 'hexlet-pairs';
 import { runGame } from '..';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+
 
 const startGame = () => {
   const game = {

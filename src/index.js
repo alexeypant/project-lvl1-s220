@@ -1,6 +1,6 @@
 // I need to add logic description here
 import readlineSync from 'readline-sync';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 
 const getResponseAndShow = () => {
   const userName = readlineSync.question('May I have your name? ');
@@ -21,19 +21,6 @@ const checkAnswer = (guess, correctAnswer) => {
   console.log('Correct!');
   return true;
 };
-
-export const sortArray = (A) => {
-  const n = A.length;
-  for(let i = 0; i < n; i++) {
-    let v = A[i];
-    let j = i - 1;
-    while (j >= 0 && A[j] > v) {
-      A[j+1] = A[j];
-      j -= 1;
-    }
-  }
-  return A;
-}
 
 export const runGame = (game, message) => {
   console.log(message);

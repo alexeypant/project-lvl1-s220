@@ -1,6 +1,6 @@
 {
   "name": "brain-games-ap",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "brain games by alexey panteleychuk",
   "main": "src/index.js",
   "bin": {
