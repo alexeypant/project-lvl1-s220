@@ -22,6 +22,25 @@ const checkAnswer = (guess, correctAnswer) => {
   return true;
 };
 
+export const getGCD = (a, b) => {
+  if (b === 0) {
+    return (a < 0) ? -a : a;
+  }
+  return getGCD(b, a % b);
+};
+// might be this way
+//  return (b === 0) ? (a < 0 ? - a : a) : getGCD(b, a % b);
+//or that way
+// while (a !== 0 && b !== 0) {
+//   if (a >= b) {
+//     a %= b;
+//   } else {
+//     b %= a;
+//   }
+// }
+// return (a + b);
+
+
 export const runGame = (game, message) => {
   console.log(message);
   console.log(`${game.task}`);

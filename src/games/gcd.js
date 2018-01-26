@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { runGame } from '..';
+import { runGame, getGCD } from '..';
 
 
 const startGame = () => {
@@ -13,14 +13,7 @@ const startGame = () => {
         b = Math.round(Math.random() * 100);
       }
       const question = (`${a} and ${b}`);
-      while (a !== 0 && b !== 0) {
-        if (a >= b) {
-          a %= b;
-        } else {
-          b %= a;
-        }
-      }
-      const correctAnswer = (a + b);
+      const correctAnswer = getGCD(a, b);
       return cons(question, correctAnswer);
     },
   };
